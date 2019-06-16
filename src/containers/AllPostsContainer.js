@@ -1,15 +1,18 @@
 import {Container} from 'unstated';
+import Actions from '../ContentfulActions';
 
 export default class AllPostsContainer extends Container {
-  state = { posts:[{title:"fdfdtitle","body":"aa","date":"19"}] };
+  state = { posts:[] };
   fetch = () => {
-    this.setState(
-      state => {
-        return { posts: [{title:"a","body":"aa","date":"19"}]};
-      },
-      () => {
-        console.log('Updated!');
-      }
-    );
+    Actions.fetchAllPosts.then(data => {
+      this.setState(
+        state => {
+          return { posts: data.items};
+        },
+        () => {
+          console.log('Updated!');
+        }
+      );
+    });
   };
 }
