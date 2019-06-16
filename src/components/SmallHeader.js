@@ -4,11 +4,14 @@ import PostItem from './PostItem';
 import MobileTitleImage from '../assets/header-title.png';
 import PcTitleImage from '../assets/header-wider-title.png';
 import BackgroundImage from '../assets/header-background.jpg';
+import { Link } from 'react-router-dom';
 
 const HeaderComponent = () => (
   <Header>
     <PinkBackground>
+      <Link to="/">
       <TitleImage />
+      </Link>
     </PinkBackground>
   </Header>
 );
