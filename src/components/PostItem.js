@@ -18,6 +18,10 @@ const PostItem = ({post: post}) => {
 };
 
 const Wrapper = styled.div`
+  @media (max-width:1000px) {
+    width: 40%;
+    margin: 20px 10px;
+  }
   width: 25%;
   margin: 40px 20px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
