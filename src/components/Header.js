@@ -39,6 +39,9 @@ const TitleImage = styled.div`
 `;
 
 const Message = styled.p`
+  @media (max-width:481px) {
+    width: auto;
+  }
   display: block;
   text-align: center;
   width: 500px;
