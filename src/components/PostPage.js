@@ -28,7 +28,7 @@ export default class PostPage extends React.Component {
                 <span />
               </Arrow>
             </PostInfo>
-            <SnsShare url={encodeURI("https://anharu-blog.netlify.com/posts/" + post.fields.url)}/>
+            <SnsShare url={encodeURI("https://anharu.me/posts/" + post.fields.url)}/>
           </Background>
           <PostWrapper>
             {documentToReactComponents(post.fields.content, options)}
