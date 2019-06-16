@@ -475,6 +475,12 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'ACCESS_TOKEN': JSON.stringify(process.env.ACCESS_TOKEN),
+          'SPACE': JSON.stringify(process.env.SPACE),
+        }
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
