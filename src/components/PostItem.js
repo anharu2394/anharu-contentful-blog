@@ -44,12 +44,18 @@ const DateText = styled.p`
 `;
 
 const Detail = styled.div`
+  @media (max-width: 481px) {
+    padding: 5px;
+  }
   background: #fff;
   height: 100px;
   padding: 30px;
 `;
 
 const Title = styled.h2`
+  @media (max-width: 481px) {
+    font-size: 1rem;
+  }
   margin: 0;
   color: #222;
   font-size: 1.3rem;
