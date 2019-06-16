@@ -1,12 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import PostItem from './PostItem';
 
 const Posts = ({posts: posts}) => (
-  <div>
+  <Wrapper>
     {
       posts.map(post => <PostItem post={post} />)
     }
-  </div>
+  </Wrapper>
 );
+
+const Wrapper = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 export default Posts;
