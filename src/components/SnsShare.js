@@ -4,17 +4,17 @@ import styled from 'styled-components';
 const SnsShare = ({url: url}) => (
   <Wrapper>
     <div>
-      <a href={"http://twitter.com/intent/tweet?text=" + url} class="tw">
+      <a href={"http://twitter.com/intent/tweet?text=" + url} className="tw">
         <i class="fa fa-twitter"></i>
       </a>
     </div>
     <div>
-      <a href={"http://www.facebook.com/sharer.php?u=" + url} class="facebook">
+      <a href={"http://www.facebook.com/sharer.php?u=" + url} className="facebook">
         <i class="fa fa-facebook"></i>
       </a>
     </div>
     <div>
-      <a href={"http://b.hatena.ne.jp/entry/" + url} class="hatebu">
+      <a href={"http://b.hatena.ne.jp/entry/" + url} className="hatebu">
         <i class="fa fa-hatebu"></i>
       </a>
     </div>
