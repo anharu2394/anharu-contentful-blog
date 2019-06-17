@@ -21,10 +21,10 @@ export default class PostPage extends React.Component {
         <Wrapper>
           <Helmet>
             <title>{post.fields.title} - Anharu's Blog</title>
-            <meta property="og:title" content={post.fields.title - "Anharu's Blog"} />
-            <meta property="og:description" content={post.fields.title + 'という記事です。'} />
+            <meta property="og:title" content={post.fields.title + " - Anharu's Blog"} />
+            <meta property="og:description" content={'「' + post.fields.title + '」' + 'という記事です。'} />
             <meta property="og:type" content="article" />
-            <meta property="og:image" content={post.fields.image.fields.file.url} />
+            <meta property="og:image" content={'https:' + post.fields.image.fields.file.url} />
           </Helmet>
           <Background url={post.fields.image.fields.file.url}>
             <PostInfo>
