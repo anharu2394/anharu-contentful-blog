@@ -154,6 +154,23 @@ const Arrow = styled.div`
 
 const PostWrapper = styled.div`
   padding: 50px 40px 30px;
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 1.3rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    h5 {
+      font-size: 1rem;
+    }
+  }
   h1 {
     position: relative;
     padding: .7em;
