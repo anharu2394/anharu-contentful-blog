@@ -96,6 +96,13 @@ const PostInfo = styled.div`
   h1{
     font-size: 2.3rem;
   }
+  @media (max-width: 700px) {
+    h1{
+      font-size: 1.5rem;
+    }
+    padding-right 20px;
+    padding-left 20px;
+  }
   div {
     padding-top: 90px;
   }
