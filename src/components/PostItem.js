@@ -6,7 +6,7 @@ const PostItem = ({post: post}) => {
   const date = new Date(post.fields.date);
   return (
     <Wrapper>
-      <StyledLink to="/posts/first-post">
+      <StyledLink to={"/posts/" + post.fields.url}>
         <Image src={post.fields.image.fields.file.url}/>
         <Detail>
           <DateText>{date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</DateText>
