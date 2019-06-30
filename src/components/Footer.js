@@ -5,7 +5,7 @@ import PostItem from './PostItem';
 const FooterComponent = () => (
   <Footer>
       <Inner>
-        <Message>© Copyright 2019 Ando Haruka All rights reserved.</Message>
+        <Message>© Copyright 2019 Anharu All rights reserved.</Message>
       </Inner>
   </Footer>
 );
