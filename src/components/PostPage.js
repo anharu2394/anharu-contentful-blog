@@ -74,6 +74,7 @@ const Background = styled.div`
   padding-top: 24.4px;
   background-image: url(${props => props.url });
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 `;
 
