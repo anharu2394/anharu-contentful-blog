@@ -43,7 +43,7 @@ const Wrapper = styled.section`
     border-radius: 50%;
     color: #fff;
     background: #7dcdf7;
-    opacity: 0.9;
+    opacity: 0.95;
   }
   a .tw {
     background: #7dcdf7;
