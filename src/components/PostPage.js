@@ -154,8 +154,9 @@ const Arrow = styled.div`
 `;
 
 const PostWrapper = styled.div`
-  padding: 50px 16px 30px;
+  padding: 50px 20vw 30px;
   @media (max-width: 700px) {
+    padding: 50px 16px 30px;
     h1 {
       font-size: 1.3rem;
     }
