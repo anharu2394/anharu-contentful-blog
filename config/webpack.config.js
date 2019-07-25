@@ -585,6 +585,30 @@ module.exports = function(webpackEnv) {
             // public/ and not a SPA route
             new RegExp('/[^/]+\\.[^/]+$'),
           ],
+          navigationPreload: true,
+          runtimeCaching: [
+            {
+              urlPattern: ({event}) => event.request.mode === 'navigate',
+              handler: 'NetworkOnly',
+            },
+            {
+              urlPattern: new RegExp('^https://cdn\.contentful\.com/'),
+              handler: 'StaleWhileRevalidate',
+              options: {
+                cacheableResponse: {
+                statuses: [0, 200]
+              }
+              },
+            },
+            {
+              urlPattern: new RegExp('^https://http://images\.ctfassets\.net/'),
+              handler: 'StaleWhileRevalidate',
+              options: {
+                cacheableResponse: {
+                statuses: [0, 200]
+              }
+            },
+          }],
         }),
       // TypeScript type checking
       useTypeScript &&
