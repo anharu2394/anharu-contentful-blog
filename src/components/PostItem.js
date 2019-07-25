@@ -7,7 +7,9 @@ const PostItem = ({post: post}) => {
   return (
     <Wrapper>
       <StyledLink to={"/posts/" + post.fields.url}>
-        <Image src={post.fields.image.fields.file.url}/>
+        <ImgWrapper>
+          <Image crossOrigin="anonymous" src={post.fields.image.fields.file.url}/>
+        </ImgWrapper>
         <Detail>
           <DateText>{date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</DateText>
           <Title>{post.fields.title}</Title>
@@ -28,8 +30,24 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
-  display: block; 
-  width:100%;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height: 100%;
+  vertical-align: middle;
+`;
+
+const ImgWrapper = styled.div`
+  @media (max-width:1000px) {
+    height: 20vh;
+    width: 33vh;
+  }
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+height: 40vh;
 `;
 
 const StyledLink = styled(Link)`

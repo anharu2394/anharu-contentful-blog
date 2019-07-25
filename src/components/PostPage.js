@@ -26,7 +26,7 @@ export default class PostPage extends React.Component {
             <meta property="og:type" content="article" />
             <meta property="og:image" content={'https:' + post.fields.image.fields.file.url} />
           </Helmet>
-          <Background url={post.fields.image.fields.file.url}>
+          <Background crossorigin="anonymous" url={post.fields.image.fields.file.url}>
             <PostInfo>
               <div>
                 <p>{date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</p>

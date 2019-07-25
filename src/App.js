@@ -33,6 +33,12 @@ function App() {
               }
             </Subscribe>
           )} />
+          <Route exact path='/offline' render={() => (
+            <div>
+              <Header />
+              <h1>Oops, you appear to be offline</h1>
+            </div>
+          )} />
           <Footer />
         </div>
       </BrowserRouter>
