@@ -573,47 +573,8 @@ module.exports = function(webpackEnv) {
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the Webpack build.
       isEnvProduction &&
-        new WorkboxWebpackPlugin.GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
-          exclude: [/\.map$/, /asset-manifest\.json$/],
-          importWorkboxFrom: 'cdn',
-          navigateFallback: publicUrl + '/index.html',
-          navigateFallbackBlacklist: [
-            // Exclude URLs starting with /_, as they're likely an API call
-            new RegExp('^/_'),
-            // Exclude URLs containing a dot, as they're likely a resource in
-            // public/ and not a SPA route
-            new RegExp('/[^/]+\\.[^/]+$'),
-          ],
-          navigationPreload: true,
-          runtimeCaching: [
-            {
-              urlPattern: new RegExp('/'),
-              handler: 'staleWhileRevalidate',
-            },
-            {
-              urlPattern: ({event}) => event.request.mode === 'navigate',
-              handler: 'NetworkOnly',
-            },
-            {
-              urlPattern: new RegExp('^https://cdn\.contentful\.com/'),
-              handler: 'StaleWhileRevalidate',
-              options: {
-                cacheableResponse: {
-                statuses: [0, 200]
-              }
-              },
-            },
-            {
-              urlPattern: new RegExp('^https://http://images\.ctfassets\.net/'),
-              handler: 'StaleWhileRevalidate',
-              options: {
-                cacheableResponse: {
-                statuses: [0, 200]
-              }
-            },
-          }],
+        new WorkboxWebpackPlugin.InjectManifest({
+          swSrc: './src/sw.js',
         }),
       // TypeScript type checking
       useTypeScript &&
