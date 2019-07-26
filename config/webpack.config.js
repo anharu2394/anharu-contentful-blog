@@ -589,6 +589,10 @@ module.exports = function(webpackEnv) {
           navigationPreload: true,
           runtimeCaching: [
             {
+              urlPattern: new RegExp('/'),
+              handler: 'staleWhileRevalidate',
+            },
+            {
               urlPattern: ({event}) => event.request.mode === 'navigate',
               handler: 'NetworkOnly',
             },
