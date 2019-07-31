@@ -8,7 +8,6 @@ export default class Home extends React.Component {
     this.props.fetch();
   }
   render() {
-    console.log(this.props);
     return (
       <Wrapper>
         <Posts posts={this.props.state.posts} />

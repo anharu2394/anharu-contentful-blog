@@ -8,7 +8,6 @@ const Actions = {
     client.getEntries({
       order: 'sys.createdAt',
     }).then((entries) => {
-      console.log(entries);
       resolve(entries);
     }).catch(error => console.log(error)); 
   }),
@@ -18,7 +17,6 @@ const Actions = {
         'fields.url': url,
         'content_type': 'blog',
       }).then((entries) => {
-        console.log(entries);
         resolve(entries);
       }).catch(error => console.log(error)); 
     });
