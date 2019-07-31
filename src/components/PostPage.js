@@ -62,7 +62,6 @@ export default class PostPage extends React.Component {
 const options = {
   renderNode: {
     'embedded-asset-block': (node) => {
-      console.log(node.data);
       const contentType = node.data.target.fields.file.contentType;
       if (contentType.match("audio") !== null) {
         return <audio src={node.data.target.fields.file.url} controls></audio>;
