@@ -1,17 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const PostItem = ({post: post}) => {
+const PostItem = ({ post: post }) => {
   const date = new Date(post.fields.date);
   return (
     <Wrapper>
       <StyledLink to={"/posts/" + post.fields.url}>
         <ImgWrapper>
-          <Image crossOrigin="anonymous" src={post.fields.image.fields.file.url}/>
+          <Image
+            crossOrigin="anonymous"
+            src={post.fields.image.fields.file.url + "?fit=fill&w=200"}
+          />
         </ImgWrapper>
         <Detail>
-          <DateText>{date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</DateText>
+          <DateText>
+            {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}
+          </DateText>
           <Title>{post.fields.title}</Title>
         </Detail>
       </StyledLink>
@@ -20,7 +25,7 @@ const PostItem = ({post: post}) => {
 };
 
 const Wrapper = styled.div`
-  @media (max-width:1000px) {
+  @media (max-width: 1000px) {
     width: 40%;
     margin: 20px 10px;
   }
@@ -30,24 +35,21 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width:auto;
-  height:auto;
-  max-width:100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
   max-height: 100%;
-  vertical-align: middle;
 `;
 
 const ImgWrapper = styled.div`
-  @media (max-width:1000px) {
-    height: 20vh;
-    width: 33vh;
-  }
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 100%;
-height: 40vh;
+  height: 150px;
 `;
 
 const StyledLink = styled(Link)`
@@ -56,7 +58,7 @@ const StyledLink = styled(Link)`
 
 const DateText = styled.p`
   margin: 2px;
-  font-size: .7rem;
+  font-size: 0.7rem;
   color: #b5b5b5;
   font-weight: 900;
 `;
@@ -66,8 +68,8 @@ const Detail = styled.div`
     padding: 5px;
   }
   background: #fff;
-  height: 100px;
-  padding: 30px;
+  min-height: 100px;
+  padding: 20px;
 `;
 
 const Title = styled.h2`
@@ -76,7 +78,7 @@ const Title = styled.h2`
   }
   margin: 0;
   color: #222;
-  font-size: 1.3rem;
+  font-size: 1rem;
 `;
 
 export default PostItem;

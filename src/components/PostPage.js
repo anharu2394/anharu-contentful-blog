@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Subscribe, Provider } from 'unstated';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import {Helmet} from "react-helmet";
-import Posts from './Posts';
-import SnsShare from './SnsShare';
+import React from "react";
+import styled from "styled-components";
+import { Subscribe, Provider } from "unstated";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Helmet } from "react-helmet";
+import Posts from "./Posts";
+import SnsShare from "./SnsShare";
 
-export default class PostPage extends React.Component {  
+export default class PostPage extends React.Component {
   componentDidMount() {
     this.props.retrievePost(this.props.id);
     window.scrollTo(0, 0);
@@ -21,22 +21,42 @@ export default class PostPage extends React.Component {
         <Wrapper>
           <Helmet>
             <title>{post.fields.title} - Anharu's Blog</title>
-            <meta property="og:title" content={post.fields.title + " - Anharu's Blog"} />
-            <meta property="og:description" content={'「' + post.fields.title + '」' + 'という記事です。'} />
+            <meta
+              property="og:title"
+              content={post.fields.title + " - Anharu's Blog"}
+            />
+            <meta
+              property="og:description"
+              content={"「" + post.fields.title + "」" + "という記事です。"}
+            />
             <meta property="og:type" content="article" />
-            <meta property="og:image" content={'https:' + post.fields.image.fields.file.url} />
+            <meta
+              property="og:image"
+              content={"https:" + post.fields.image.fields.file.url}
+            />
           </Helmet>
-          <Background crossorigin="anonymous" url={post.fields.image.fields.file.url}>
+          <Background
+            crossorigin="anonymous"
+            url={
+              post.fields.image.fields.file.url +
+              "?fit=fill&w=" +
+              window.innerWidth
+            }
+          >
             <PostInfo>
               <div>
-                <p>{date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</p>
+                <p>
+                  {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}
+                </p>
                 <h1>{post.fields.title}</h1>
               </div>
               <Arrow>
                 <span />
               </Arrow>
             </PostInfo>
-            <SnsShare url={encodeURI("https://anharu.me/posts/" + post.fields.url)}/>
+            <SnsShare
+              url={encodeURI("https://anharu.me/posts/" + post.fields.url)}
+            />
           </Background>
           <PostWrapper>
             {documentToReactComponents(post.fields.content, options)}
@@ -44,12 +64,8 @@ export default class PostPage extends React.Component {
         </Wrapper>
       );
     } else if (this.props.state.loading) {
-      return (
-        <div>
-        </div>
-      );
-    } 
-    else {
+      return <div></div>;
+    } else {
       return (
         <div>
           <p>記事が見つかりません</p>
@@ -61,25 +77,33 @@ export default class PostPage extends React.Component {
 
 const options = {
   renderNode: {
-    'embedded-asset-block': (node) => {
+    "embedded-asset-block": (node) => {
       const contentType = node.data.target.fields.file.contentType;
       if (contentType.match("audio") !== null) {
         return <audio src={node.data.target.fields.file.url} controls></audio>;
+      } else {
+        return (
+          <img
+            class="img-fluid"
+            src={
+              node.data.target.fields.file.url +
+              "?fit=fill&w=" +
+              window.innerWidth
+            }
+          />
+        );
       }
-      else {
-        return <img class="img-fluid" src={node.data.target.fields.file.url}/>;
-      }
-    }
-  }
+    },
+  },
 };
 const Wrapper = styled.div`
-  background-color:  #f7f7f7;
+  background-color: #f7f7f7;
 `;
 
 const Background = styled.div`
   height: calc(100vh - 70px - 24.4px);
   padding-top: 24.4px;
-  background-image: url(${props => props.url });
+  background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -185,14 +209,14 @@ const PostWrapper = styled.div`
   }
   h1 {
     position: relative;
-    padding: .7em;
+    padding: 0.7em;
     margin-bottom: 60px;
     background: #e0edff;
-    z-index:1;
+    z-index: 1;
   }
   h1:after {
     position: absolute;
-    content: '';
+    content: "";
     top: 100%;
     left: 30px;
     border: 15px solid transparent;
