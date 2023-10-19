@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PostItem from './PostItem';
 
-const Posts = ({posts: posts}) => (
+const Posts = ({posts}) => (
   <Wrapper>
     {
       posts.map(post => <PostItem post={post} />)

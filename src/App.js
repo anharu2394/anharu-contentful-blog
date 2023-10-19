@@ -1,8 +1,7 @@
 import React from 'react';
 import { Subscribe, Provider } from 'unstated';
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SmallHeader from './components/SmallHeader';

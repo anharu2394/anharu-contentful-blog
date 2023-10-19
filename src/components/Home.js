@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Subscribe, Provider } from 'unstated';
 import Posts from './Posts';
 
 export default class Home extends React.Component {  

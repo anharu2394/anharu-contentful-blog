@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SnsShare = ({url: url}) => (
+const SnsShare = ({url}) => (
   <Wrapper>
     <div>
       <a href={"http://twitter.com/intent/tweet?text=" + url} className="tw">

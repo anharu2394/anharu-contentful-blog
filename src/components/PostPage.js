@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Subscribe, Provider } from "unstated";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Helmet } from "react-helmet";
-import Posts from "./Posts";
 import SnsShare from "./SnsShare";
 
 export default class PostPage extends React.Component {
@@ -27,7 +25,7 @@ export default class PostPage extends React.Component {
             />
             <meta
               property="og:description"
-              content={"「" + post.fields.title + "」" + "という記事です。"}
+              content={"「" + post.fields.title + "」という記事です。"}
             />
             <meta property="og:type" content="article" />
             <meta
@@ -84,6 +82,7 @@ const options = {
       } else {
         return (
           <img
+            alt="img"
             class="img-fluid"
             src={
               node.data.target.fields.file.url +

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PostItem from './PostItem';
-import MobileTitleImage from '../assets/header-title.png';
 import PcTitleImage from '../assets/header-wider-title.png';
 import BackgroundImage from '../assets/header-background.jpg';
 

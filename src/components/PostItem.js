@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const PostItem = ({ post: post }) => {
+const PostItem = ({ post }) => {
   const date = new Date(post.fields.date);
   return (
     <Wrapper>
